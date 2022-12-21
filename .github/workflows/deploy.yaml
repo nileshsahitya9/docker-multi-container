@@ -13,15 +13,15 @@ jobs:
       - run: docker build -t cygnetops/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true cygnetops/react-test npm test
  
-      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-client-10-14 ./client
-      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-nginx-10-14 ./nginx
-      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-server-10-14 ./server
-      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-worker-10-14 ./worker
+      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/multi-client-10-14 ./client
+      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/multi-nginx-10-14 ./nginx
+      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/multi-server-10-14 ./server
+      - run: docker build -t ${{secrets.DOCKER_USERNAME}}/multi-worker-10-14 ./worker
  
-      - run: docker push  ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-client-10-14
-      - run: docker push  ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-nginx-10-14
-      - run: docker push  ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-server-10-14
-      - run: docker push  ${{secrets.DOCKER_USERNAME}}/cygnetops/multi-worker-10-14
+      - run: docker push  ${{secrets.DOCKER_USERNAME}}/multi-client-10-14
+      - run: docker push  ${{secrets.DOCKER_USERNAME}}/multi-nginx-10-14
+      - run: docker push  ${{secrets.DOCKER_USERNAME}}/multi-server-10-14
+      - run: docker push  ${{secrets.DOCKER_USERNAME}}/multi-worker-10-14
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
